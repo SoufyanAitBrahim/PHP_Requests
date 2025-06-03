@@ -1,0 +1,33 @@
+/*==============================================================*/
+/* créer la base de données                                     */
+/*==============================================================*/
+create database activites_sportives ;
+
+
+/*==============================================================*/
+/* Table : utilisateur                                              */
+/*==============================================================*/
+use activites_sportives ;
+create table utilisateur
+(
+   id            int auto_increment,
+   nom      varchar(255),
+   email         varchar(255) unique,
+   mot_de_passe         varchar(255),
+   primary key(id)
+);
+
+/*==============================================================*/
+/* Table : seance                                                 */
+/*==============================================================*/
+use activites_sportives ;
+create table seance
+(
+   id              int auto_increment,
+   utilisateur_id      int NOT NULL,
+   type           varchar(255),
+   duree     int,
+   calories     int,
+   date       Date,
+   primery key    (id, utilisateur_id)
+);
